@@ -63,24 +63,26 @@ function PersonListViewModel(){
 	};
 	self.getData = function(){
 		$.ajax({
-            url: "/servletjspdemo/rest/people?page=" + self.page(),
-            type: "GET",
-            contentType: "application/json",
+            url: '/servletjspdemo/rest/people?page=' + self.page(),
+            type: 'GET',
+            contentType: 'application/json',
             success: function (data) {
             	self.people([]);
-            	for(var i=0; i<list.length;i=i+1){
-            		self.people().push(new PersonViewModel(data[i], self));
+				var temp = [];
+            	for(var i = 0; i < data.length; i = i + 1){
+            		temp.push(new PersonViewModel(data[i], self));
             	}
+				self.people(temp);
 
                 $('.js-bday').datepicker();
             },
             error: function (XMLHttpRequest, testStatus, errorThrown) {
-               alert("nie udało się")
+               alert('nie udało się');
                console.log(testStatus);
                console.log(errorThrown);
                console.log(XMLHttpRequest);
             }
         });
 	}
-	
+
 }

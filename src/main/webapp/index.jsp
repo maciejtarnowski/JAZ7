@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html"
     pageEncoding="UTF-8"%>
-<%@taglib prefix="t" tagdir="/WEB-INF/tags/templates" %>    
+<%@taglib prefix="t" tagdir="/WEB-INF/tags/templates" %>
 <t:layout>
 	<jsp:attribute name="styles">
 		<!-- put your styles here -->
@@ -8,11 +8,8 @@
 	<jsp:attribute name="scripts">
 		<script type="text/javascript">
 		$.ajax({
-            url: "/servletjspdemo/rest/service/test",
-            type: "POST",
-            data: ko.toJSON({
-            	messege:"hello"
-            }),
+            url: "/servletjspdemo/rest/test",
+            type: "GET",
             contentType: "application/json",
             success: function (data) {
                 alert("udało się");
@@ -22,12 +19,12 @@
 
             }
         });
-			
-		</script>	
-		
+
+		</script>
+
 	</jsp:attribute>
 	<jsp:body>
 		Hello World
 	</jsp:body>
-	
+
 </t:layout>
