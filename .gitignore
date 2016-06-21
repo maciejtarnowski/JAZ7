@@ -32,3 +32,5 @@ test-output
 #  syntax: regexp
 #  ^\.pc/
 
+.idea/
+*.iml
